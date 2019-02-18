@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
 
 // Application.
+import { ConfigurationModule } from "@Application/configuration";
 import { InfoController, InfoService } from "@Application/main";
 
 @Module({
@@ -8,9 +9,11 @@ import { InfoController, InfoService } from "@Application/main";
     InfoController
   ],
   imports: [
+    ConfigurationModule
   ],
   providers: [
     InfoService
   ]
 })
-export class MainModule {}
+export class MainModule {
+}

@@ -16,4 +16,5 @@ import { AuthController, AuthService } from "@Application/auth";
     AuthService
   ]
 })
-export class AuthModule {}
+export class AuthModule {
+}
