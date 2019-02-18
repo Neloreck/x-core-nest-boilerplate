@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "../target/ts-transpiled/",
+    "paths": {
+      "@Application/*": [
+        "./main/application/*"
+      ],
+      "@Application": [
+        "./main/application/index"
+      ],
+      "@Lib/*": [
+        "./main/lib/*"
+      ],
+      "@Resources/*": [
+        "./main/resources/*"
+      ]
+    },
+    "baseUrl": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    // Temp before nest 6.0.
+    "skipLibCheck": true,
+    "moduleResolution": "node"
+  },
+  "lib": [
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018"
+  ],
+  "types": [
+    "node"
+  ],
+  "exclude": [
+    "./test",
+    "node_modules"
+  ]
+}
