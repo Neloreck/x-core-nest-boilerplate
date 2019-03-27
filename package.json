@@ -19,9 +19,10 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
-    "@nestjs/common": "^5.7.2",
-    "@nestjs/core": "^5.7.2",
-    "dotenv": "^6.2.0",
+    "@nestjs/common": "^6.0.3",
+    "@nestjs/core": "^6.0.3",
+    "@nestjs/platform-express": "^6.0.3",
+    "dotenv": "^7.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^2.6.3",
     "rxjs": "^6.4.0",

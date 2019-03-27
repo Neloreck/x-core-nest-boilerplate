@@ -10,7 +10,7 @@ import { EntryPoint } from "@Lib/utils/EntryPoint";
 @EntryPoint()
 export class Application {
 
-  private static readonly PORT: number = Number.parseInt(process.env.PORT || "3000", 10);
+  private static readonly PORT: number = Number.parseInt(process.env.PORT || "4000", 10);
 
   public static async main(): Promise<void> {
 
