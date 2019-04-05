@@ -17,7 +17,7 @@ export class ConfigurationService {
     this.envConfig = Dotenv.parse(FS.readFileSync(Path.join(ConfigurationService.ENV_CONFIGS_DIR, envFileName)));
   }
 
-  public get(key: string): string {
+  public getEnvConfig(key: string): string {
     return this.envConfig[key];
   }
 
