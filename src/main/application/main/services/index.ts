@@ -1,1 +1,1 @@
-export { InfoService } from "@Application/main/services/Info.service";
+export * from "@Application/main/services/Info.service";

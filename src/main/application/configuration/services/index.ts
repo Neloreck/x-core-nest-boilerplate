@@ -1,1 +1,1 @@
-export { ConfigurationService } from "@Application/configuration/services/Configuration.Service";
+export * from "@Application/configuration/services/Configuration.service";

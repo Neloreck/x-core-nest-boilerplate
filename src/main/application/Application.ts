@@ -2,7 +2,7 @@ import { Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 
 // Application.
-import { ApplicationModule } from "@Application/Application.Module";
+import { ApplicationModule } from "@Application/Application.module";
 
 // Lib.
 import { EntryPoint } from "@Lib/utils/EntryPoint";

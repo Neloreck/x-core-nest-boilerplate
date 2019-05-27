@@ -1,1 +1,1 @@
-export { InfoController } from "@Application/main/controllers/Info.Controller";
+export * from "@Application/main/controllers/Info.Controller";

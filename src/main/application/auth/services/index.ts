@@ -1,1 +1,1 @@
-export { AuthService } from "@Application/auth/services/Auth.Service";
+export * from "@Application/auth/services/Auth.service";

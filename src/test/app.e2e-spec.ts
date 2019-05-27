@@ -1,10 +1,10 @@
 import { INestApplication } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
 
-import request from "supertest";
+import * as Supertest from "supertest";
 
 // Application.
-import { ApplicationModule } from "@Application/Application.Module";
+import { ApplicationModule } from "@Application/Application.module";
 
 describe("Main controller (e2e)", () => {
 
@@ -25,7 +25,7 @@ describe("Main controller (e2e)", () => {
   });
 
   it("/ (GET)", () => {
-    return request(app.getHttpServer())
+    return Supertest.request(app.getHttpServer())
       .get("/")
       .expect(200)
       .expect("Hello World!");
