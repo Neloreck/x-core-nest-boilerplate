@@ -1,0 +1,26 @@
+{
+  "config": {
+  },
+  "scripts": {
+    "clean": "npx rimraf ./target && echo 'Target cleaned up.'",
+    "purge": "npx rimraf ./target && rimraf ./node_modules && echo 'Project purged.'",
+    "===========================================================================================================": "==",
+    "start": "npx cross-env NODE_ENV=development ts-node -P ./src/tsconfig.json -r tsconfig-paths/register src/main/application/Application.ts",
+    "start:dev": "nodemon --config ./src/nodemon.json",
+    "start:prod": "npx cross-env NODE_ENV=production node target/dist/application/Application.js",
+    "=============================================================================================================": "",
+    "build": [
+      "npm run cli clean",
+      "tsc -p ./src/tsconfig.json --outdir ./target/ts-transpiled",
+      "npx babel ./target/ts-transpiled --out-dir ./target/dist --extensions \".ts,.js\" && rm -r ./target/ts-transpiled"
+    ],
+    "============================================================================================================": "=",
+    "test": [
+      "npm run cli lint",
+      "npm run cli jest"
+    ],
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "jest": "npx ts-node --project ./cli/tsconfig.json ./cli/test/TestRunner.ts",
+    "lint": "npx tslint --project ./src/"
+  }
+}

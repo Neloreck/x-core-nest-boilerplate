@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Inject } from "@nestjs/common";
 
 // Application.
 import { AuthService } from "@Application/auth/services";
@@ -6,7 +6,8 @@ import { AuthService } from "@Application/auth/services";
 @Controller("/api/auth")
 export class AuthController {
 
-  public constructor(private readonly authService: AuthService) {}
+  @Inject()
+  private readonly authService!: AuthService;
 
   @Get("/info")
   public getAuthInfo(): object {
