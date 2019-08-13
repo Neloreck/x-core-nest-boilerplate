@@ -12,8 +12,11 @@
       "@Application/*": [
         "./main/application/*"
       ],
-      "@Application": [
-        "./main/application/index"
+      "@General/*": [
+        "./main/application/general/*"
+      ],
+      "@Modules/*": [
+        "./main/application/modules/*"
       ],
       "@Lib/*": [
         "./main/lib/*"

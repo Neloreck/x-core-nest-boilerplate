@@ -39,7 +39,8 @@
       "member-variable-declaration",
       "parameter",
       "property-declaration"
-    ]
+    ],
+    "max-classes-per-file": false
   },
   "rulesDirectory": []
 }

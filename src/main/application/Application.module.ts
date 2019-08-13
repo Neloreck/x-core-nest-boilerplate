@@ -1,15 +1,17 @@
 import { Module } from "@nestjs/common";
 
 // Application.
-import { AuthModule } from "@Application/auth";
-import { ConfigurationModule } from "@Application/configuration";
-import { MainModule } from "@Application/main";
+import { GeneralModule } from "@General/General.module";
+import { AuthModule } from "@Modules/auth";
+import { ConfigurationModule } from "@Modules/configuration";
+import { DatabaseModule } from "@Modules/database";
 
 @Module({
   imports: [
     AuthModule,
     ConfigurationModule,
-    MainModule
+    DatabaseModule,
+    GeneralModule
   ]
 })
 export class ApplicationModule {
