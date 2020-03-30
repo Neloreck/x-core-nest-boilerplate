@@ -1,0 +1,47 @@
+{
+  "minified": false,
+  "presets": [
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": true
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./"
+        ],
+        "alias": {
+          "@Application": "./src/application",
+          "@Core": "./src/application/core",
+          "@Lib": "./src/lib",
+          "@Modules": "./src/application/modules",
+          "@Resources": "./src/resources"
+        }
+      }
+    ],
+    [ "@babel/plugin-proposal-decorators", { "legacy": true } ],
+    [ "@babel/plugin-proposal-class-properties", { "loose": true } ],
+    "@babel/plugin-proposal-object-rest-spread"
+  ],
+  "ignore": [
+    "/node_modules/"
+  ],
+  "only": [
+    "./application",
+    "./lib"
+  ]
+}

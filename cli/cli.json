@@ -2,25 +2,60 @@
   "config": {
   },
   "scripts": {
-    "clean": "npx rimraf ./target && echo 'Target cleaned up.'",
-    "purge": "npx rimraf ./target && rimraf ./node_modules && echo 'Project purged.'",
+    "list": {
+      "exec": "ts-node --project ./cli/tsconfig.json ./cli/utils/print_commands_list.ts",
+      "description": "Show custom CLI commands list."
+    },
+    "clean": {
+      "exec": "npx rimraf ./target && echo 'Target cleaned up.'",
+      "description": "Remove project built assets."
+    },
     "===========================================================================================================": "==",
-    "start": "npx cross-env NODE_ENV=development ts-node -P ./src/tsconfig.json -r tsconfig-paths/register src/main/application/Application.ts",
-    "start:dev": "nodemon --config ./src/nodemon.json",
-    "start:prod": "npx cross-env NODE_ENV=production node target/dist/application/Application.js",
+    "start:dev-once": {
+      "exec": "npx cross-env NODE_ENV=development ts-node -P ./src/tsconfig.json -r tsconfig-paths/register src/application/Application.ts",
+      "description": "Start dev server application without changes watch."
+    },
+    "start:dev": {
+      "exec":"nodemon --config ./src/nodemon.json",
+      "description": "Start dev server application in watch mode."
+    },
+    "start:prod": {
+      "exec": "npx cross-env NODE_ENV=production node target/dist/application/Application.js",
+      "description": "Start prod server application from pre-build sources."
+    },
     "=============================================================================================================": "",
-    "build": [
-      "npm run cli clean",
-      "tsc -p ./src/tsconfig.json --outdir ./target/ts-transpiled",
-      "npx babel ./target/ts-transpiled --out-dir ./target/dist --extensions \".ts,.js\" && rm -r ./target/ts-transpiled"
-    ],
+    "build": {
+      "exec": [
+        "npm run cli clean",
+        "npx babel ./src --config-file ./src/babel.config.json --out-dir ./target/dist -x '.ts,.js'",
+        "cp -r ./src/resources ./target/dist/resources"
+      ],
+      "description": "Build project files with babel and typescript."
+    },
     "============================================================================================================": "=",
-    "test": [
-      "npm run cli lint",
-      "npm run cli jest"
-    ],
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "jest": "npx ts-node --project ./cli/tsconfig.json ./cli/test/TestRunner.ts",
-    "lint": "npx tslint --project ./src/"
+    "test": {
+      "exec": [
+        "npm run cli typecheck",
+        "npm run cli lint",
+        "npm run cli jest"
+      ],
+      "description": "Run project testing. Use typechecker, linter and jest."
+    },
+    "jest:debug": {
+      "exec": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+      "description": "Run jest tests with enabled debugging mode to enable connection from IDE or debugger."
+    },
+    "jest": {
+      "exec": "npx ts-node --project ./cli/tsconfig.json ./cli/test/TestRunner.ts",
+      "description": "Run jest tests."
+    },
+    "lint": {
+      "exec": "npx tslint --project ./src/",
+      "description": "Run project linter for source files."
+    },
+    "typecheck": {
+      "exec": "npx tsc -p src --noEmit",
+      "description": "Run TS typechecks."
+    }
   }
 }

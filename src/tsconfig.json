@@ -10,19 +10,19 @@
     "outDir": "../target/ts-transpiled/",
     "paths": {
       "@Application/*": [
-        "./main/application/*"
+        "./application/*"
       ],
-      "@General/*": [
-        "./main/application/general/*"
+      "@Core/*": [
+        "./application/core/*"
       ],
       "@Modules/*": [
-        "./main/application/modules/*"
+        "./application/modules/*"
       ],
       "@Lib/*": [
-        "./main/lib/*"
+        "./lib/*"
       ],
       "@Resources/*": [
-        "./main/resources/*"
+        "./resources/*"
       ]
     },
     "baseUrl": ".",

@@ -1,7 +1,7 @@
-import { CommandRunner, EntryPoint } from "./_cli";
+import { CommandRunner, Run } from "./_cli";
 import * as cliConfig from "./cli.json";
 
-@EntryPoint()
+@Run()
 export class CliRunner {
 
   public static readonly scriptsKey: string = "scripts";
@@ -10,11 +10,12 @@ export class CliRunner {
   public static async main(args: Array<string>): Promise<void> {
 
     const cmd: string = args[2];
+    const cmdAdditionalArgs: Array<string> = args.slice(3);
 
     const script: string | Array<string> = cliConfig[CliRunner.scriptsKey][cmd];
     const config: string | Array<string> = cliConfig[CliRunner.configKey][cmd];
 
-    const commandRunner: CommandRunner = new CommandRunner(cmd, script, config);
+    const commandRunner: CommandRunner = new CommandRunner(cmd, cmdAdditionalArgs, script, config);
 
     try {
 

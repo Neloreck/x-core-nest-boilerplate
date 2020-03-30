@@ -1,0 +1,8 @@
+{
+  "name": "cli",
+  "private": true,
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {}
+}
