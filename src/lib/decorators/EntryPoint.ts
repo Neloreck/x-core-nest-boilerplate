@@ -1,9 +1,7 @@
 let called: boolean = false;
 
 export const EntryPoint = (shouldCall?: boolean): any => {
-
-  return (targetClass: { main: (argv: Array<string>) => void } ): void  => {
-
+  return (targetClass: { main: (argv: Array<string>) => void }): void => {
     if (shouldCall === false) {
       return;
     }

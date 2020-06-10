@@ -2,7 +2,7 @@
   "config": {
   },
   "scripts": {
-    "list": {
+    "help": {
       "exec": "ts-node --project ./cli/tsconfig.json ./cli/utils/print_commands_list.ts",
       "description": "Show custom CLI commands list."
     },
@@ -33,7 +33,7 @@
       "description": "Build project files with babel and typescript."
     },
     "============================================================================================================": "=",
-    "test": {
+    "verify": {
       "exec": [
         "npm run cli typecheck",
         "npm run cli lint",
@@ -45,12 +45,12 @@
       "exec": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
       "description": "Run jest tests with enabled debugging mode to enable connection from IDE or debugger."
     },
-    "jest": {
+    "test": {
       "exec": "npx ts-node --project ./cli/tsconfig.json ./cli/test/TestRunner.ts",
       "description": "Run jest tests."
     },
     "lint": {
-      "exec": "npx tslint --project ./src/",
+      "exec": "npx eslint src/**/*.ts",
       "description": "Run project linter for source files."
     },
     "typecheck": {

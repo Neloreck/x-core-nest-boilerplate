@@ -11,7 +11,6 @@ const scripts: Array<string> = Object
 process.stdout.write("\n");
 
 scripts.forEach((it: string, index: number) => {
-
   const executablePart = cliConfig.scripts[it];
 
   process.stdout.write(`${index + 1}) ${green(it)} \n`);

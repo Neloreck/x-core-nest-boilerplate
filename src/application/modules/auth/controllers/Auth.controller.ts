@@ -1,7 +1,6 @@
-import { Controller, Get, HttpCode, HttpStatus, Inject } from "@nestjs/common";
+import { Controller, Get, HttpCode, HttpStatus, Inject, Logger } from "@nestjs/common";
 import { ApiOkResponse, ApiTags } from "@nestjs/swagger";
 
-// Application.
 import { AuthInfoResponse } from "@Modules/auth/controllers/Auth.exchange";
 import { AuthService } from "@Modules/auth/services";
 
@@ -16,6 +15,8 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @ApiOkResponse({ description: "Got current auth status info.", type: AuthInfoResponse })
   public getAuthInfo(): AuthInfoResponse {
+    Logger.log("Got remote request.");
+
     return new AuthInfoResponse(true,{ authenticated: this.authService.isAuthenticated() });
   }
 

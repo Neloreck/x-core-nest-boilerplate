@@ -1,13 +1,10 @@
+import * as fs from "fs";
+import * as path from "path";
 import { Injectable, Logger } from "@nestjs/common";
-import * as Dotenv from "dotenv";
-import * as FS from "fs";
-import * as Path from "path";
+import * as dotenv from "dotenv";
 
-// Lib.
-import { IStringIndexed } from "@Lib/types/general";
-
-// Application.
 import { applicationConfig } from "@Core/configs";
+import { IStringIndexed } from "@Lib/types/general";
 
 @Injectable()
 export class EnvironmentConfigurationService {
@@ -16,11 +13,10 @@ export class EnvironmentConfigurationService {
   private readonly envConfig: IStringIndexed<string>;
 
   public constructor() {
-
     this.logger.log(`Loading ENV configuration for: ${applicationConfig.ENVIRONMENT.MODE}.`);
     this.logger.log(`Config path: ${applicationConfig.PATHS.ENV_CONFIG}.`);
 
-    this.envConfig =  Dotenv.parse(FS.readFileSync(Path.join(applicationConfig.PATHS.ENV_CONFIG)));
+    this.envConfig = dotenv.parse(fs.readFileSync(path.join(applicationConfig.PATHS.ENV_CONFIG)));
   }
 
   public getEnvConfig(): IStringIndexed<string> {

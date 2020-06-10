@@ -1,6 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-// Application.
 import { BaseResponse } from "@Core/models/BaseResponse";
 
 export class ErrorResponse extends BaseResponse<undefined> {

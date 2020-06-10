@@ -1,6 +1,5 @@
 import { Module } from "@nestjs/common";
 
-// Application.
 import { AuthController, AuthService } from "@Modules/auth/index";
 
 @Module({
