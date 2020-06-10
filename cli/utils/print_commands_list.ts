@@ -1,4 +1,5 @@
 import { green } from "colors";
+
 import * as cliConfig from "../cli.json";
 
 const DEFAULT_SCRIPTS_SEPARATOR: string = "=";
@@ -11,7 +12,7 @@ const scripts: Array<string> = Object
 process.stdout.write("\n");
 
 scripts.forEach((it: string, index: number) => {
-  const executablePart = cliConfig.scripts[it];
+  const executablePart = (cliConfig.scripts as { [index: string]: any })[it];
 
   process.stdout.write(`${index + 1}) ${green(it)} \n`);
 

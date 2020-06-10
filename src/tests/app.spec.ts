@@ -1,7 +1,8 @@
-import { ApplicationModule } from "@Application/Application.module";
 import { INestApplication } from "@nestjs/common";
 import { Test } from "@nestjs/testing";
 import * as request from "supertest";
+
+import { GeneralModule } from "@Modules/General.module";
 
 describe("AppController (e2e)", () => {
   let app: INestApplication;
@@ -9,7 +10,7 @@ describe("AppController (e2e)", () => {
   beforeAll(async (): Promise<void> => {
     const moduleFixture = await Test.createTestingModule({
       imports: [
-        ApplicationModule
+        GeneralModule
       ]
     }).compile();
 

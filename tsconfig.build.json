@@ -8,19 +8,19 @@
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": true,
-    "outDir": "../target/ts-transpiled/",
+    "outDir": "./target/ts-transpiled/",
     "paths": {
       "@Core/*": [
-        "./application/core/*"
+        "./src/application/core/*"
       ],
       "@Modules/*": [
-        "./application/modules/*"
+        "./src/application/modules/*"
       ],
       "@Lib/*": [
-        "./lib/*"
+        "./src/lib/*"
       ],
       "@Resources/*": [
-        "./resources/*"
+        "./src/resources/*"
       ]
     },
     "baseUrl": ".",
@@ -29,6 +29,7 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
+    "skipLibCheck": true,
     "moduleResolution": "node"
   },
   "lib": [
