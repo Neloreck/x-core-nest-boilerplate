@@ -1,23 +1,14 @@
-import * as path from "path";
+import { environmentConfig } from "@Core/configs/Environment.config";
 
 export const applicationConfig = {
-  ENVIRONMENT: {
-    MODE: process.env.NODE_ENV as string || "development",
-    get IS_DEV(): boolean {
-      return this.MODE !== "production";
-    }
-  },
-  PATHS: {
-    SOURCE_ROOT: path.resolve(__dirname, "../../../"),
-    get RESOURCES_ROOT(): string {
-      return path.resolve(this.SOURCE_ROOT, "resources/");
-    },
-    get ENV_CONFIG(): string {
-      return path.resolve(this.RESOURCES_ROOT, "configs/", applicationConfig.ENVIRONMENT.MODE + ".env");
-    }
+  MODE: process.env.NODE_ENV as string || "development",
+  get IS_DEV(): boolean {
+    return this.MODE !== "production";
   },
   SERVER: {
-    PORT: process.env.APPLICATION_PORT || "3000"
+    get PORT(): string {
+      return environmentConfig.get("APPLICATION_PORT") || "3000";
+    }
   },
   DOCS: {
     URL_PATH: "/docs",

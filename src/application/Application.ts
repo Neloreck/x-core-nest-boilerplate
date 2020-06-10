@@ -4,16 +4,18 @@ import { INestApplication, Logger, ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
-import { ApplicationModule } from "@Application/Application.module";
+import { EntryPoint } from "@Lib/decorators/EntryPoint";
+
 import { applicationConfig } from "@Core/configs";
 import { GlobalHttpExceptionFilter } from "@Core/filters";
-import { EntryPoint } from "@Lib/decorators/EntryPoint";
+
+import { GeneralModule } from "@Modules/General.module";
 
 @EntryPoint()
 export class Application {
 
   public static async main(): Promise<void> {
-    const application: INestApplication = await NestFactory.create(ApplicationModule, { cors: true });
+    const application: INestApplication = await NestFactory.create(GeneralModule, { cors: true });
 
     this.configureGlobals(application);
     this.configureSwagger(application);
@@ -37,7 +39,7 @@ export class Application {
    */
   private static configureSwagger(application: INestApplication): void {
     // Expose api docs only in dev mode for private usage.
-    if (!applicationConfig.ENVIRONMENT.IS_DEV) {
+    if (!applicationConfig.IS_DEV) {
       return;
     }
 

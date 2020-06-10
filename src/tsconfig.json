@@ -9,9 +9,6 @@
     "sourceMap": true,
     "outDir": "../target/ts-transpiled/",
     "paths": {
-      "@Application/*": [
-        "./application/*"
-      ],
       "@Core/*": [
         "./application/core/*"
       ],
