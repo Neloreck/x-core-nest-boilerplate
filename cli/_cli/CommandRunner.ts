@@ -119,12 +119,12 @@ export class CommandRunner {
 
         const checkError = (data: string): void => {
           reject(new Error(data.toString()));
-          (this.childProcess as ChildProcess).kill(99);
+          (this.childProcess as ChildProcess).kill("99");
         };
 
         this.childProcess.on("SIGINT", () => {
           reject(new Error("Process was interrupted manually."));
-          (this.childProcess as ChildProcess).kill(2);
+          (this.childProcess as ChildProcess).kill("2");
         });
 
         [ "uncaughtException", "unhandledRejection", "SIGUSR1", "SIGUSR2" ]
